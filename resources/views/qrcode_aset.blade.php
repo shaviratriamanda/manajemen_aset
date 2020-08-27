@@ -43,6 +43,7 @@
 @section('script')
   <script>
   // Halaman kelola karyawan
+  // ini contoh perubahan
     $('#tabel_aset').DataTable( {
         processing: true,
         serverSide: true,
