@@ -95,5 +95,6 @@
         ]
     }
     );
+    // komentar
   </script>
 @endsection
