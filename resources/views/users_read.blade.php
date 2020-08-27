@@ -22,10 +22,9 @@
                 <th width="10">No</th>
                 <th width="300">Name</th>
                 <th width="300">Email</th>
-                <th width="950">Password</th>
                 <th width="950">Api Token</th>
                 <th width="950">Created At</th>
-				<th width="950">Updated At</th>
+                <th width="950">Updated At</th>
                 <th width="80" class="text-center">Aksi</th>
               </tr>
             </thead>
@@ -40,7 +39,7 @@
 @section('script')
   <script>
   // Halaman kelola karyawan
-    $('#tabel_users').DataTable( {
+    $('#tabel_karyawan').DataTable( {
         processing: true,
         serverSide: true,
         ajax: "api/datatable/users",
@@ -59,9 +58,6 @@
             },
             {
               data: "email", orderable: true, searchable: true
-            },
-            {
-              data: "password", orderable: true, searchable: true
             },
             {
               data: "api_token", orderable: true, searchable: true
