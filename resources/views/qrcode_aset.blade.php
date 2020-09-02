@@ -4,14 +4,14 @@
 
 @section('content')
   <section class="content">
-    <div class="panel panel-default">
-      <div class="panel-heading">
+    <div class="card">
+      <div class="card-header">
         <div style="float: left;">
-          <h2>QR Code Aset</h2>
+          <h4>QR Code Aset</h4>
         </div>
         <div style="clear: both"></div>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <div class="table-responsive">
           <form action="{{ url('aset/cetak-qr') }}" method="POST">
             @csrf
@@ -22,12 +22,10 @@
               <tr>
                 <th width="10">Pilih</th>
                 <th width="10">No</th>
-                <th width="300">Kode Aset</th>
-				<th width="300">Nama Aset</th>
-				<th width="300">Lokasi</th>
-				<th width="300">Deskripsi</th>
-				<th width="300">Created At</th>
-				<th width="300">Id Kategori</th>
+                <th>Kode Aset</th>
+				<th>Nama Aset</th>
+				<th>Lokasi</th>
+				<th>Kategori</th>
 				<th width="200" class="text-center">QR Code</th>
               </tr>
             </thead>
@@ -72,12 +70,6 @@
             },
 			{
               data: "lokasi.nama_lokasi", orderable: true, searchable: true
-            },
-			{
-              data: "deskripsi", orderable: true, searchable: true
-            },
-			{
-              data: "created_at", orderable: true, searchable: true
             },
 			{
               data: "kategori.nama_kategori", orderable: true, searchable: true

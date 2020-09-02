@@ -4,12 +4,12 @@
 
 @section('content')
   <section class="content">
-    <div class="panel panel-default">
-      <div class="panel-heading">	
-        <h2>Edit Data Kondisi Aset</h2>
+    <div class="card">
+      <div class="card-header">	
+        <h4>Edit Data Kondisi Aset</h4>
         <h4>{{ $data_aset->kode_aset }} - {{ $data_aset->nama_aset }}</h4>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         
           <form method="post" action="{{ url('kondisi-aset/edit/'.$detail->id) }}">
             @csrf

@@ -112,4 +112,36 @@ class Users extends Controller
         "jenis_kelamin",
         "nohp"))->toJson();
     }
+
+    public function cekLogin(Request $request)
+    {
+        $login = $request->all();
+        $cek_login = ModelUsers::where("email", $login['email'])->first();
+        if(!empty($cek_login))
+        {
+            $password = $cek_login->password;
+            if(Hash::check($login['password'], $password))
+            {
+                $request->session()->flash('alert.type', 'success');
+                $request->session()->flash('alert.text', 'Anda berhasil login!');
+                $request->session()->put('id', $cek_login->id);
+                $request->session()->put('name', $cek_login->name);
+                $request->session()->put('email', $cek_login->email);
+                $request->session()->put('api_token', $cek_login->api_token);
+                return redirect('/beranda');
+            }
+            else
+            {
+                $request->session()->flash('alert.type', 'error');
+                $request->session()->flash('alert.text', 'Email atau password salah!');
+                return redirect('/');
+            }
+        }
+        else
+        {
+            $request->session()->flash('alert.type', 'error');
+            $request->session()->flash('alert.text', 'Email atau password salah!');
+            return redirect('/');
+        }
+    }
 }

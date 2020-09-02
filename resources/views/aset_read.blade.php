@@ -4,28 +4,28 @@
 
 @section('content')
   <section class="content">
-    <div class="panel panel-default">
-      <div class="panel-heading">
+    <div class="card">
+      <div class="card-header">
         <div style="float: left;">
-          <h2>Data Aset</h2>
+          <h4>Data Aset</h4>
         </div>
         <div style="float: right;">
           <a href="{{ url('aset/tambah')}}" class="btn btn-primary"><i class='icon icon-white icon-plus'></i> Tambah Aset</a>
         </div>
         <div style="clear: both"></div>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <div class="table-responsive">
           <table id="tabel_aset" class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
                 <th width="10">No</th>
-                <th width="300">Kode Aset</th>
-				<th width="300">Nama Aset</th>
-				<th width="300">Lokasi</th>
-				<th width="300">Deskripsi</th>
-				<th width="300">Created At</th>
-				<th width="300">Kategori</th>
+                <th>Kode Aset</th>
+				<th>Nama Aset</th>
+				<th>Lokasi</th>
+				<th>Deskripsi</th>
+				<th>Created At</th>
+				<th>Kategori</th>
 				<th width="80" class="text-center">Aksi</th>
               </tr>
             </thead>
@@ -76,14 +76,14 @@
               data: null,
               render: function( data, type, row, meta ){
 				          return  "<div class='btn-group'>" +
-                          "<a href='aset/" + data.id + "/kondisi-aset' class='btn btn-xs btn-success tipsy-kiri-atas' title='Edit Data'><i class='fa fa-server'></i> Kondisi Aset</a>" +
-                          "</div>" +
+                          "<a href='aset/" + data.id + "/kondisi-aset' class='btn btn-sm btn-success' title='Edit Data'><i class='fas fa-server'></i> Kondisi Aset</a>" +
+                          "</div> &nbsp;" +
                           " <br> <br>" + 
                           "<div class='btn-group'>" +
-                          "<a href='{{ url('aset/edit') }}/" + data.id +"' class='btn btn-xs btn-info tipsy-kiri-atas' title='Edit Data'><i class='fa fa-pencil'></i> Edit</a>" +
+                          "<a href='{{ url('aset/edit') }}/" + data.id +"' class='btn btn-sm btn-info' title='Edit Data'><i class='fas fa-pencil-alt'></i> Edit</a>" +
                           "</div> <br> <br>" +
                           "<div class='btn-group'>" +
-                          "<a href='{{ url('aset/hapus') }}/" + data.id +"' class='btn btn-xs btn-danger tipsy-kiri-atas' name='tombol_hapus' onclick='return confirm(\"Apakah Anda ingin menghapus data ini?. \")' title='Hapus Data'><i class='fa fa-trash-o'></i> Hapus</a></div>";
+                          "<a href='{{ url('aset/hapus') }}/" + data.id +"' class='btn btn-sm btn-danger' name='tombol_hapus' onclick='return confirm(\"Apakah Anda ingin menghapus data ini?. \")' title='Hapus Data'><i class='fas fa-trash'></i> Hapus</a></div>";
                 },
                 searchable: false
             }

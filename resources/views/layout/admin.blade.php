@@ -1,153 +1,91 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Aset Manajemen - @yield('title')</title>
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+<html lang="en">
 
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('css/ionicons.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('plugins/datepicker3.css') }}">
-        <link rel="stylesheet" href="{{ asset('plugins/datepicker.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
-        
-        <link href="{{ asset('css/pikaday.css') }}" rel="stylesheet" type="text/css" />
-        
-        <link rel="icon" href="favicon.ico">
-        
-        <script src="{{ asset('js/moment.js') }}"></script>
-        <script src="{{ asset('js/moment-id.js') }}"></script>
-        <script src="{{ asset('js/pikaday.js') }}"></script>
-		<script src="{{ asset('js/jquery.js') }}"></script>
-		<script src="{{ asset('js/jquery-ui.js') }}"></script>
-		<script src="{{ asset('js/qrcode.min.js') }}"></script>
-    </head>
-    <body class="skin-black">
-      <noscript>Javascript harus diaktifkan untuk mengakses program ini!</noscript>
-        <header class="header">
-            <nav class="navbar navbar-static-top" role="navigation">
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                      <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                          <i class="fa fa-bell-o"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          
-                        </ul>
-                      </li>
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="glyphicon glyphicon-user"></i>
-                                
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header bg-light-blue">
-                                    <img src="img/default-user.png" class="img-circle" alt="User Image" />
-                                    <p>
-                                        <small>Aplikasi Aset Manajemen Perkantoran</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    
-                                    <div class="pull-right">
-                                        <a href="config/logout.php" class="btn btn-default btn-flat">Keluar</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@yield('title')</title>
+    <link href="{{ asset('assets/vendor/bootstrap4/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/master.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/chartsjs/Chart.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/flagiconcss3/css/flag-icon.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('assets/js/qrcode.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
 
-        <div class="wrapper row-offcanvas row-offcanvas-left">
-            <aside class="left-side sidebar-offcanvas">
-              
-              <!-- BAGIAN SIDEBAR MENU -->
-              <section class="sidebar">
-                <!-- Sidebar user panel -->
-                <div class="user-panel">
-                  <!-- <div class="pull-left image">
-                    <img src="img/default-user.png" class="img-circle" alt="User Image" />
-                  </div> -->
-                  <!-- <div class="pull-left image">
-                    <img src="img/default-user.png" class="img-circle" alt="User Image" />
-                  </div> -->
-                  <!-- <p style="color: white">
-                  <i class="fa fa-coffee"></i>
-                  </p> -->
-                  <div class="pull-left info">
-                    <p>
-                      <i class="fa fa-user fa-2x" style="color: white"></i> Hello, Admin
-                    </p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                  </div>
-                </div>
-                <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu">
-                  <li><a href="{{ url('/users') }}"></i> <span>Users</span></a></li>
-				  <li><a href="{{ url('/aset') }}"></i> <span>Aset</span></a></li>
-          <li><a href="{{ url('/kategori-aset') }}"><span>Kategori Aset</span></a></li>
-          <li><a href="{{ url('/lokasi') }}"><span>Lokasi</span></a></li>
-          <li><a href="{{ url('/aset/qr') }}"><span>QR-Code</span></a></li>
-	
-                </ul>
-              </section>
-              
-              
-            </aside>
-
-            <aside class="right-side">
-              @yield('content')
-            </aside>
+</head>
+<body>
+  <div class="wrapper">
+    <nav id="sidebar" class=>
+      <div class="sidebar-header">
+          <img src="{{ asset('assets/img/bootstraper-logo.png') }}" alt="bootraper logo" class="app-logo">
+      </div>
+      <ul class="list-unstyled components text-secondary">
+        <li>
+            <a href="{{ url('/beranda') }}"><i class="fas fa-home"></i> Beranda</a>
+        </li>
+        <li>
+            <a href="{{ url('/users') }}"><i class="fas fa-user-friends"></i> Users</a>
+        </li>
+        <li>
+            <a href="{{ url('/aset') }}"><i class="fas fa-layer-group"></i> Aset</a>
+        </li>
+        <li>
+            <a href="{{ url('/kategori-aset') }}"><i class="fas fa-table"></i> Kategori Aset</a>
+        </li>
+        <li>
+            <a href="{{ url('/lokasi') }}"><i class="fas fa-map-marker"></i> Lokasi</a>
+        </li>
+        <li>
+            <a href="{{ url('/aset/qr') }}"><i class="fas fa-qrcode"></i> QR-Code</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="body" class="active">
+      <nav class="navbar navbar-expand-lg navbar-white bg-white">
+          <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary default-secondary-menu"><i class="fas fa-bars"></i><span></span></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                      <div class="nav-dropdown">
+                          <a href="" class="nav-item nav-link dropdown-toggle text-secondary" data-toggle="dropdown"><i class="fas fa-user"></i> <span>{{ session()->get('name') }}</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                          <div class="dropdown-menu dropdown-menu-right nav-link-menu">
+                              <ul class="nav-list">
+                                  <li><a href="{{ url('/logout') }}" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      <div class="content">
+        <div class="container-fluid">
+          @yield('content')
         </div>
+      </div>
+    </div>
+    
+  </div>
+  <script src="{{ asset('assets/vendor/jquery3/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/bootstrap4/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/fontawesome5/js/solid.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/fontawesome5/js/fontawesome.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/chartsjs/Chart.min.js') }}"></script>
+  <script src="{{ asset('assets/js/script.js') }}"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-		    
-        <!-- Bootstrap -->
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <!-- Sparkline -->
-        <script src="{{ asset('js/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
-        <!-- jvectormap -->
-        <script src="{{ asset('js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}" type="text/javascript"></script>
+  @yield('script')
 
-        <!-- jQuery Knob Chart -->
-        <script src="{{ asset('js/plugins/jqueryKnob/jquery.knob.js') }}"></script>
+  @if(session()->has('alert.type'))
+    <script>
+      Swal.fire(
+        'Pesan',
+        '{{ session()->get('alert.text') }}',
+        '{{ session()->get('alert.type') }}'
+      )
+    </script>
+  @endif
 
-        <!-- Bootstrap WYSIHTML5 -->
-        <script src="{{ asset('js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-        <!-- iCheck -->
-        <script src="{{ asset('js/plugins/iCheck/icheck.min.js') }}"></script>
-
-        <script src="{{ asset('js/jquery-number.js') }}"></script>
-		<script src="{{ asset('chosen/chosen.jquery.js') }}"></script>
-
-        <!-- AdminLTE App -->
-        <script src="{{ asset('js/AdminLTE/app.js') }}"></script>
-        <script src="{{ asset('plugins/bootstrap-datepicker.js') }}"></script>
-        <script src="{{ asset('plugins/bootstrap-datepicker.min.js') }}"></script>
-        <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-        
-        <!-- Library untuk format angka -->
-        <script src="{{ asset('js/autonumeric.js') }}"></script>
-              
-      <!-- Pengaturan untuk setiap datatable dibawah ini -->
-      <script src="{{ asset('js/datatable-ajax.js') }}"></script>
-      <!-- Kumpulan method untuk JS -->
-      <script src="{{ asset('js/helper.js') }}"></script>
-      @yield('script')
-    </body>
+</body>
 </html>

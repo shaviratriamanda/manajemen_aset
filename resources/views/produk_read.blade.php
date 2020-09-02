@@ -4,26 +4,26 @@
 
 @section('content')
   <section class="content">
-    <div class="panel panel-default">
-      <div class="panel-heading">
+    <div class="card">
+      <div class="card-header">
         <div style="float: left;">
-          <h2>Data Produk</h2>
+          <h4>Data Produk</h4>
         </div>
         <div style="float: right;">
           <a href="{{ url('produk/tambah')}}" class="btn btn-primary"><i class='icon icon-white icon-plus'></i> Tambah Produk Baru</a>
         </div>
         <div style="clear: both"></div>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <div class="table-responsive">
           <table id="tabel_produk" class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
                 <th width="10">No</th>
-                <th width="300">Nama Produk</th>
-                <th width="300">Stok</th>
-                <th width="300">Harga Jual</th>
-                <th width="300">Harga Beli</th>
+                <th>Nama Produk</th>
+                <th>Stok</th>
+                <th>Harga Jual</th>
+                <th>Harga Beli</th>
                 <th width="80" class="text-center">Aksi</th>
               </tr>
             </thead>
@@ -68,10 +68,10 @@
               data: null,
               render: function( data, type, row, meta ){
                   return  "<div class='btn-group'>" +
-                          "<a href='{{ url('produk/edit') }}/" + data.id_user +"' class='btn btn-xs btn-info tipsy-kiri-atas' title='Edit Data'><i class='fa fa-pencil'></i> Edit</a>" +
-                          "</div>" +
+                          "<a href='{{ url('produk/edit') }}/" + data.id_user +"' class='btn btn-sm btn-info' title='Edit Data'><i class='fas fa-pencil-alt'></i> Edit</a>" +
+                          "</div> &nbsp;" +
                           "<div class='btn-group'>" +
-                          "<a href=' class='btn btn-xs btn-danger tipsy-kiri-atas' name='tombol_hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini? \")' title='Hapus Data'><i class='fa fa-trash'></i> Hapus</a></div>";
+                          "<a href=' class='btn btn-sm btn-danger' name='tombol_hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini? \")' title='Hapus Data'><i class='fa fa-trash'></i> Hapus</a></div>";
                 },
                 searchable: false
             }

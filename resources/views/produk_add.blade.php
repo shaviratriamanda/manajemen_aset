@@ -4,11 +4,11 @@
 
 @section('content')
   <section class="content">
-    <div class="panel panel-default">
-      <div class="panel-heading">	
-        <h2>Tambah Data Karyawan</h2>
+    <div class="card">
+      <div class="card-header">	
+        <h4>Tambah Data Karyawan</h4>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         
           <form method="post">
             @csrf

@@ -17,4 +17,20 @@ class Halaman extends Controller
         $data['kondisi_total'] = $data['kondisi_good'] + $data['kondisi_bad'] + $data['kondisi_lost'] + $data['kondisi_damaged'];
         return view("beranda", $data);
     }
+    public function show_login()
+    {
+        return view("login");
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->forget('id');
+        $request->session()->forget('name');
+        $request->session()->forget('email');
+        $request->session()->forget('api_token');
+        $request->session()->flash('alert.type', 'success');
+        $request->session()->flash('alert.text', 'Anda berhasil logout!');
+
+        return redirect("/");
+    }
 }

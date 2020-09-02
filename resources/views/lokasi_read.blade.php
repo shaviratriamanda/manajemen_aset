@@ -4,23 +4,23 @@
 
 @section('content')
   <section class="content">
-    <div class="panel panel-default">
-      <div class="panel-heading">
+    <div class="card">
+      <div class="card-header">
         <div style="float: left;">
-          <h2>Data Lokasi</h2>
+          <h4>Data Lokasi</h4>
         </div>
         <div style="float: right;">
           <a href="{{ url('lokasi/tambah')}}" class="btn btn-primary"><i class='icon icon-white icon-plus'></i> Tambah Lokasi</a>
         </div>
         <div style="clear: both"></div>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <div class="table-responsive">
           <table id="tabel_kategori_aset" class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
                 <th width="10">No</th>
-                <th width="300">Nama Lokasi</th>
+                <th>Nama Lokasi</th>
                 <th width="80" class="text-center">Aksi</th>
               </tr>
             </thead>
@@ -56,10 +56,10 @@
               data: null,
               render: function( data, type, row, meta ){
                   return  "<div class='btn-group'>" +
-                          "<a href='{{ url('lokasi/edit') }}/" + data.id +"' class='btn btn-xs btn-info tipsy-kiri-atas' title='Edit Data'><i class='fa fa-pencil'></i> Edit</a>" +
-                          "</div>" +
+                          "<a href='{{ url('lokasi/edit') }}/" + data.id +"' class='btn btn-sm btn-info' title='Edit Data'><i class='fas fa-pencil-alt'></i> Edit</a>" +
+                          "</div> &nbsp;" +
                           "<div class='btn-group'>" +
-                          "<a href='{{ url('lokasi/hapus') }}/" + data.id +"' class='btn btn-xs btn-danger tipsy-kiri-atas' name='tombol_hapus' onclick='return confirm(\"Apakah Anda ingin menghapus data ini?. \")' title='Hapus Data'><i class='fa fa-trash-o'></i> Hapus</a></div>";
+                          "<a href='{{ url('lokasi/hapus') }}/" + data.id +"' class='btn btn-sm btn-danger' name='tombol_hapus' onclick='return confirm(\"Apakah Anda ingin menghapus data ini?. \")' title='Hapus Data'><i class='fas fa-trash'></i> Hapus</a></div>";
                 },
                 searchable: false
             }

@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui.js') }}"></script>
-    <script src="{{ asset('js/qrcode.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery3/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/qrcode.min.js') }}"></script>
     <title>Document</title>
 </head>
 <body>

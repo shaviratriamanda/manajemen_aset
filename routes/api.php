@@ -25,32 +25,32 @@ Route::post('/datatable/users', "Users@datatable");
 
 
 
-Route::get('/kategori-aset', "API\KategoriAset@index");
-Route::get('/kategori-aset/{id}', "API\KategoriAset@show");
-Route::post('/kategori-aset/tambah', "API\KategoriAset@store");
-Route::post('/kategori-aset/edit/{id}', "API\KategoriAset@edit");
-Route::get('/kategori-aset/hapus/{id}', "API\KategoriAset@destroy");
+Route::get('/kategori-aset', "API\KategoriAset@index")->middleware("cek_login_api");
+Route::get('/kategori-aset/{id}', "API\KategoriAset@show")->middleware("cek_login_api");
+Route::post('/kategori-aset/tambah', "API\KategoriAset@store")->middleware("cek_login_api");
+Route::post('/kategori-aset/edit/{id}', "API\KategoriAset@edit")->middleware("cek_login_api");
+Route::get('/kategori-aset/hapus/{id}', "API\KategoriAset@destroy")->middleware("cek_login_api");
 
-Route::get('/users', "API\Users@index");
-Route::get('/users/{id}', "API\Users@show");
-Route::post('/users/tambah', "API\Users@store");
-Route::post('/users/edit/{id}', "API\Users@edit");
-Route::get('/Users/hapus/{id}', "API\Users@destroy");
+Route::get('/users', "API\Users@index")->middleware("cek_login_api");
+Route::get('/users/{id}', "API\Users@show")->middleware("cek_login_api");
+Route::post('/users/tambah', "API\Users@store")->middleware("cek_login_api");
+Route::post('/users/edit/{id}', "API\Users@edit")->middleware("cek_login_api");
+Route::get('/Users/hapus/{id}', "API\Users@destroy")->middleware("cek_login_api");
 
-Route::get('/aset/{id_aset}/kondisi-aset', "API\KondisiAset@index");
-Route::get('/aset/{id_aset}/kondisi-aset/tambah', "API\KondisiAset@create");
-Route::post('/aset/{id_aset}/kondisi-aset/tambah', "API\KondisiAset@store");
-Route::get('/aset/{id_aset}/kondisi-aset/edit/{id}', "API\KondisiAset@edit");
-Route::post('/aset/{id_aset}/kondisi-aset/edit/{id}', "API\KondisiAset@update");
-Route::get('/aset/{id_aset}/kondisi-aset/hapus/{id}', "API\KondisiAset@destroy");
+Route::get('/aset/{id_aset}/kondisi-aset', "API\KondisiAset@index")->middleware("cek_login_api");
+Route::get('/aset/{id_aset}/kondisi-aset/tambah', "API\KondisiAset@create")->middleware("cek_login_api");
+Route::post('/aset/{id_aset}/kondisi-aset/tambah', "API\KondisiAset@store")->middleware("cek_login_api");
+Route::get('/aset/{id_aset}/kondisi-aset/edit/{id}', "API\KondisiAset@edit")->middleware("cek_login_api");
+Route::post('/aset/{id_aset}/kondisi-aset/edit/{id}', "API\KondisiAset@update")->middleware("cek_login_api");
+Route::get('/aset/{id_aset}/kondisi-aset/hapus/{id}', "API\KondisiAset@destroy")->middleware("cek_login_api");
 
-Route::get('/aset', "API\Aset@index");
-Route::get('/aset/{id}', "API\Aset@show");
-Route::post('/aset/tambah', "API\Aset@store");
-Route::post('/aset/edit/{id}', "API\Aset@edit");
-Route::get('/aset/hapus/{id}', "API\Aset@destroy");
+Route::get('/aset', "API\Aset@index")->middleware("cek_login_api");
+Route::get('/aset/{id}', "API\Aset@show")->middleware("cek_login_api");
+Route::post('/aset/tambah', "API\Aset@store")->middleware("cek_login_api");
+Route::post('/aset/edit/{id}', "API\Aset@edit")->middleware("cek_login_api");
+Route::get('/aset/hapus/{id}', "API\Aset@destroy")->middleware("cek_login_api");
 
-Route::get('/beranda', "API\Halaman@beranda");
+Route::get('/beranda', "API\Halaman@beranda")->middleware("cek_login_api");
 
 
 Route::post('/login', "API\Users@cekLogin");

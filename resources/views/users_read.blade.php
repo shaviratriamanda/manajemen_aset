@@ -3,27 +3,26 @@
 @section('title', 'Data User')
 
 @section('content')
-  <section class="content">
-    <div class="panel panel-default">
-      <div class="panel-heading">
+    <div class="card">
+      <div class="card-header">
         <div style="float: left;">
-          <h2>Data User</h2>
+          <h4>Data User</h4>
         </div>
         <div style="float: right;">
           <a href="{{ url('users/tambah')}}" class="btn btn-primary"><i class='icon icon-white icon-plus'></i> Tambah User Baru</a>
         </div>
         <div style="clear: both"></div>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <div class="table-responsive">
-          <table id="tabel_karyawan" class="table table-striped table-bordered table-hover">
+          <table id="tabel_karyawan" class="table table-striped table-hover">
             <thead>
               <tr>
                 <th width="10">No</th>
-                <th width="300">Nama</th>
-                <th width="300">Email</th>
-                <th width="300">Jenis Kelamin</th>
-                <th width="300">Nohp</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Jenis Kelamin</th>
+                <th>Nohp</th>
                 <th width="80" class="text-center">Aksi</th>
               </tr>
             </thead>
@@ -32,7 +31,6 @@
         </div>
       </div>
     </div>
-  </section>
 @endsection
 
 @section('script')
@@ -68,10 +66,10 @@
               data: null,
               render: function( data, type, row, meta ){
                   return  "<div class='btn-group'>" +
-                          "<a href='{{ url('users/edit') }}/" + data.id +"' class='btn btn-xs btn-info tipsy-kiri-atas' title='Edit Data'><i class='fa fa-pencil'></i> Edit</a>" +
-                          "</div>" +
+                          "<a href='{{ url('users/edit') }}/" + data.id +"' class='btn btn-sm btn-info' title='Edit Data'><i class='fas fa-pencil-alt'></i> Edit</a>" +
+                          "</div> &nbsp;" +
                           "<div class='btn-group'>" +
-                          "<a href='{{ url('users/hapus') }}/" + data.id +"' class='btn btn-xs btn-danger tipsy-kiri-atas' name='tombol_hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini? Semua data transaksi yang terkait dengan user ini akan DIHAPUS. \")' title='Hapus Data'><i class='fa fa-trash-o'></i> Hapus</a></div>";
+                          "<a href='{{ url('users/hapus') }}/" + data.id +"' class='btn btn-sm btn-danger' name='tombol_hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini? Semua data transaksi yang terkait dengan user ini akan DIHAPUS. \")' title='Hapus Data'><i class='fas fa-trash'></i> Hapus</a></div>";
                 },
                 searchable: false
             }
