@@ -13,33 +13,30 @@
           <form method="post">
             @csrf
             <div class="form-group">
-            <label>Name</label>
+            <label>Nama</label>
             <input class="form-control" name="name" required />
             </div>
 
 			<div class="form-group">
             <label>Email</label>
-            <input class="form-control" name="email" required />
+            <input class="form-control" name="email" type="email" required />
             </div>
 			
 			<div class="form-group">
             <label>Password</label>
-            <input class="form-control" name="password" required />
+            <input class="form-control" name="password" type="password" required />
             </div>
-			
-			<div class="form-group">
-            <label>Api Token</label>
-            <input class="form-control" name="api_token" required />
+
+      <div class="form-group">
+            <label>Jenis Kelamin</label>
+            <select class="form-control" name="jenis_kelamin" required>
+              <option value="Laki-Laki">Laki-Laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
             </div>
-			
-			<div class="form-group">
-            <label>Created At</label>
-            <input class="form-control" name="created_at" required />
-            </div>
-			
-			<div class="form-group">
-            <label>Update At</label>
-            <input class="form-control" name="update_at" required />
+      <div class="form-group">
+            <label>Nohp</label>
+            <input class="form-control" name="nohp" type="text" required />
             </div>
             
             <div class="form-group">

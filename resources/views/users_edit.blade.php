@@ -10,12 +10,11 @@
       </div>
       <div class="panel-body">
         
-          <form method="post" action="{{ url('users/edit/'.$detail->id_user) }}">
+          <form method="post" action="{{ url('users/edit/'.$detail->id) }}">
             @csrf
-            <input type="hidden" value="{{ $detail->id }}" name="id" />
             
             <div class="form-group">
-            <label>Name</label>
+            <label>Nama</label>
             <input class="form-control" name="name" value="{{ $detail->name }}" required />
             </div>
 
@@ -25,23 +24,26 @@
             </div>
 
 			<div class="form-group">
-            <label>Password</label>
-            <input class="form-control" name="password" value="{{ $detail->password }}" required />
+            <label>
+              Password <br>
+              <small>*Masukan password baru jika ingin mengganti password</small>
+            </label>
+            <input class="form-control" name="password" type="password" required />
             </div>
 
-			<div class="form-group">
-            <label>Api Token</label>
-            <input class="form-control" name="api_token" value="{{ $detail->api_token }}" required />
+            <div class="form-group">
+            <label>Jenis Kelamin</label>
+            <select class="form-control" name="jenis_kelamin" required>
+              <option value="Laki-Laki">Laki-Laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+            <script>
+              document.getElementsByName("jenis_kelamin")[0].value = "{{ $detail->jenis_kelamin }}";
+            </script>
             </div>
-
-			<div class="form-group">
-            <label>Created At</label>
-            <input class="form-control" name="created_at" value="{{ $detail->created_at }}" required />
-            </div>
-
-			<div class="form-group">
-            <label>Update At</label>
-            <input class="form-control" name="update_at" value="{{ $detail->update_at }}" required />
+      <div class="form-group">
+            <label>Nohp</label>
+            <input class="form-control" name="nohp" type="text" value="{{ $detail->nohp }}" required />
             </div>
 
             <div class="form-group">
@@ -52,8 +54,4 @@
       </div>
     </div>
   </section>
-  <script>
-    document.getElementsByName("status")[0].value = "{{ $detail->status }}";
-    document.getElementsByName("level")[0].value = "{{ $detail->level }}";
-  </script>
 @endsection

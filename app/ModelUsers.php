@@ -15,7 +15,7 @@ class ModelUsers extends Model
     "email",
     "password",
     "api_token",
-    "created_at",
-    "updated_at"
+    "jenis_kelamin",
+    "nohp"
   ];
 }

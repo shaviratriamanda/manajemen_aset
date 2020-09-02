@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Yajra\Datatables\Datatables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\ModelUsers;
 
 class Users extends Controller
@@ -35,7 +36,11 @@ class Users extends Controller
      */
     public function store(Request $request)
     {
-        ModelUsers::create($request->all());
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+        $data['api_token'] = Hash::make($data['name']."-".$data['email']."-".date("Y-m-d H:i:s"));
+        unset($data['_token']);
+        ModelUsers::create($data);
         return redirect("users");
     }
 
@@ -72,11 +77,17 @@ class Users extends Controller
     public function update(Request $request, $id)
     {
         $user = $request->all();
-        if(isset($user['password']) && !empty($user['password']))
+        unset($user['_token']);
+        if(!empty($user['password']))
         {
-            $user['password'] = md5($user['password']);
+            $user['password'] = Hash::make($user['password']);
         }
-        ModelUsers::where("id_user", $id)->update($user);
+        else
+        {
+            unset($user['password']);
+        }
+        ModelUsers::where("id", $id)->update($user);
+        return redirect("users");
     }
 
     /**
@@ -94,11 +105,11 @@ class Users extends Controller
     public function datatable(Request $request)
     {
       return datatables()->of(ModelUsers::all(
-        "id_user",
-        "nama_user",	
-        "username",
-        "level",
-        "inisial",
-        "status"))->toJson();
+        "id",
+        "name",	
+        "email",
+        "api_token",
+        "jenis_kelamin",
+        "nohp"))->toJson();
     }
 }

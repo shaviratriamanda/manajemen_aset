@@ -20,15 +20,14 @@
             <thead>
               <tr>
                 <th width="10">No</th>
-                <th width="300">Name</th>
+                <th width="300">Nama</th>
                 <th width="300">Email</th>
-                <th width="950">Api Token</th>
-                <th width="950">Created At</th>
-                <th width="950">Updated At</th>
+                <th width="300">Jenis Kelamin</th>
+                <th width="300">Nohp</th>
                 <th width="80" class="text-center">Aksi</th>
               </tr>
             </thead>
-            
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -60,35 +59,19 @@
               data: "email", orderable: true, searchable: true
             },
             {
-              data: "api_token", orderable: true, searchable: true
+              data: "jenis_kelamin", orderable: false, searchable: true
             },
-			{
-              data: "created_at", orderable: true, searchable: true
-            },
-			{
-              data: "update_at", orderable: true, searchable: true
-            },
-            { // Kolom status user
-              data: "status",
-              render: function( data, type, row, meta ){
-                if(data.status == 0)
-                {
-                  return "Tidak Aktif";
-                }
-                else
-                {
-                  return "Aktif";
-                }
-              },orderable: true, searchable: false
+            {
+              data: "nohp", orderable: false, searchable: true
             },
             {
               data: null,
               render: function( data, type, row, meta ){
                   return  "<div class='btn-group'>" +
-                          "<a href='{{ url('users/edit') }}/" + data.id_user +"' class='btn btn-xs btn-info tipsy-kiri-atas' title='Edit Data'><i class='fa fa-pencil'></i> Edit</a>" +
+                          "<a href='{{ url('users/edit') }}/" + data.id +"' class='btn btn-xs btn-info tipsy-kiri-atas' title='Edit Data'><i class='fa fa-pencil'></i> Edit</a>" +
                           "</div>" +
                           "<div class='btn-group'>" +
-                          "<a href='{{ url('users/hapus') }}/" + data.id_user +"' class='btn btn-xs btn-danger tipsy-kiri-atas' name='tombol_hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini? Semua data transaksi yang terkait dengan user ini akan DIHAPUS. \")' title='Hapus Data'><i class='fa fa-trash-o'></i> Hapus</a></div>";
+                          "<a href='{{ url('users/hapus') }}/" + data.id +"' class='btn btn-xs btn-danger tipsy-kiri-atas' name='tombol_hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini? Semua data transaksi yang terkait dengan user ini akan DIHAPUS. \")' title='Hapus Data'><i class='fa fa-trash-o'></i> Hapus</a></div>";
                 },
                 searchable: false
             }

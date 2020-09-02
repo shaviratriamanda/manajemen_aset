@@ -21,6 +21,7 @@ Route::post('/datatable/kategori-aset', "KategoriAset@datatable");
 Route::post('/datatable/kondisi-aset/{id_aset}', "KondisiAset@datatable");
 Route::post('/datatable/aset', "Aset@datatable");
 Route::post('/datatable/lokasi', "Lokasi@datatable");
+Route::post('/datatable/users', "Users@datatable");
 
 
 

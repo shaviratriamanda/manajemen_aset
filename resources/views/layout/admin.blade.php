@@ -97,11 +97,11 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                  <li><a href="users"></i> <span>Users</span></a></li>
-				  <li><a href="{{ url('aset') }}"></i> <span>Aset</span></a></li>
-          <li><a href="{{ url('kategori-aset') }}"><span>Kategori Aset</span></a></li>
-          <li><a href="{{ url('lokasi') }}"><span>Lokasi</span></a></li>
-          <li><a href="{{ url('aset/qr') }}"><span>QR-Code</span></a></li>
+                  <li><a href="{{ url('/users') }}"></i> <span>Users</span></a></li>
+				  <li><a href="{{ url('/aset') }}"></i> <span>Aset</span></a></li>
+          <li><a href="{{ url('/kategori-aset') }}"><span>Kategori Aset</span></a></li>
+          <li><a href="{{ url('/lokasi') }}"><span>Lokasi</span></a></li>
+          <li><a href="{{ url('/aset/qr') }}"><span>QR-Code</span></a></li>
 	
                 </ul>
               </section>
