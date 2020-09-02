@@ -53,3 +53,6 @@ Route::get('/aset/hapus/{id}', "API\Aset@destroy");
 Route::get('/beranda', "API\Halaman@beranda");
 
 
+Route::post('/login', "API\Users@cekLogin");
+
+
