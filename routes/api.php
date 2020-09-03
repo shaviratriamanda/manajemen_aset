@@ -23,6 +23,11 @@ Route::post('/datatable/aset', "Aset@datatable");
 Route::post('/datatable/lokasi', "Lokasi@datatable");
 Route::post('/datatable/users', "Users@datatable");
 
+Route::get('/lokasi', "API\Lokasi@index")->middleware("cek_login_api");
+Route::get('/lokasi/{id}', "API\Lokasi@show")->middleware("cek_login_api");
+Route::post('/lokasi/tambah', "API\Lokasi@store")->middleware("cek_login_api");
+Route::post('/lokasi/edit/{id}', "API\Lokasi@edit")->middleware("cek_login_api");
+Route::get('/lokasi/hapus/{id}', "API\Lokasi@destroy")->middleware("cek_login_api");
 
 
 Route::get('/kategori-aset', "API\KategoriAset@index")->middleware("cek_login_api");

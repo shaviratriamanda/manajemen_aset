@@ -5,12 +5,15 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ModelKondisiAset;
+use App\ModelAset;
 
 class KondisiAset extends Controller
 {
     public function index($id_aset, Request $request)
     {
-		return response()->json(ModelKondisiAset::where("id_aset", $id_aset)->orderBy('tanggal_kondisi', 'desc')->get());
+        $data_kondisi = ModelKondisiAset::join('aset', 'kondisi_aset.id_aset', 'aset.id')->where("aset.kode_aset", $id_aset)->orderBy('kondisi_aset.tanggal_kondisi', 'desc')->get();
+
+		return response()->json($data_kondisi);
     }
 	
 	public function show($id_aset, Request $request, $id = null)
@@ -21,7 +24,7 @@ class KondisiAset extends Controller
     public function store($id_aset, Request $request)
     {
         $data_kondisi_aset = $request->all();
-        $data_kondisi_aset['id_aset'] = $id_aset;
+        $data_kondisi_aset['id_aset'] = ModelAset::where("kode_aset", $id_aset)->pluck("id")->first();
         $gambar = $request->file("gambar");
         $nama_gambar = time()."_".$gambar->getClientOriginalName();
         $gambar->move("images/", $nama_gambar);

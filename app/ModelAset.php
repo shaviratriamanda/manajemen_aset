@@ -21,6 +21,10 @@ class ModelAset extends Model
   {
       return $this->belongsTo('App\ModelKategoriAset','id_kategori', 'id');
   }
+  public function kondisi_aset()
+  {
+      return $this->hasMany('App\ModelKondisiAset','id_aset', 'id');
+  }
   public function lokasi()
   {
       return $this->belongsTo('App\ModelLokasi', 'id_lokasi', 'id');

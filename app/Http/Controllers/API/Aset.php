@@ -16,8 +16,7 @@ class Aset extends Controller
 	
 	public function show($id, Request $request)
     {
-        $data_aset = ModelAset::where("kode_aset", $id)->first();
-        $data_aset['kondisi'] = ModelKondisiAset::where("id_aset", $data_aset->id);
+        $data_aset = ModelAset::where("kode_aset", $id)->with('kondisi_aset')->first();
 		return response()->json($data_aset);	
     }
 
