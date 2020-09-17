@@ -60,6 +60,28 @@
         </div>
     </div>
   </div>
+  <div class="col-12">
+    <h3>Daftar Lokasi Aset</h3>
+    <table class="table table-stripped">
+        <tr>
+            <th>No</th>
+            <th>Nama Lokasi</th>
+            <th>Jumlah Aset</th>
+        </tr>
+        <?php
+            foreach($lokasi_aset as $no => $lokasi)
+            {
+        ?>
+                <tr>
+                    <td><?php echo $no+1; ?></td>
+                    <td><?php echo $lokasi->nama_lokasi; ?></td>
+                    <td><?php echo $lokasi->jumlah_aset; ?></td>
+                </tr>  
+        <?php
+            }
+        ?>
+    </table>
+  </div>
 </div>
 @endsection
 
