@@ -116,7 +116,7 @@ class Aset extends Controller
     public function datatable(Request $request)
     {
       $aset = new ModelAset();
-      return datatables()->of($aset->with(["kategori", "lokasi"])->select("*"))->toJson();
+      return datatables()->of($aset->with(["kategori", "lokasi"])->select("*")->orderBy("id", "asc"))->toJson();
     }
     public function qrcode_aset()
     {

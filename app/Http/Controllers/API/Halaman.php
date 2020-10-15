@@ -15,6 +15,9 @@ class Halaman extends Controller
         $data['kondisi_lost'] = $kondisi_aset->hitungAsetBerdasarkanKondisi("Lost");
         $data['kondisi_damaged'] = $kondisi_aset->hitungAsetBerdasarkanKondisi("Damaged");
         $data['kondisi_total'] = $data['kondisi_good'] + $data['kondisi_bad'] + $data['kondisi_lost'] + $data['kondisi_damaged'];
-        return response()->json($data);
+        return response([
+            'success'=>'true', 
+            'message'=>'string', 
+            'results'=>$data]);
     }
 }

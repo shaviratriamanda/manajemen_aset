@@ -22,7 +22,8 @@ var data_kondisi = {
     kondisi: "Good",   
     tanggal_kondisi: "2020-10-10",   
     jam_kondisi: "09:08",   
-    gambar: "GAMBAR"   
+    gambar: "GAMBAR",
+    deskripsi: '-'  
 }
 async function tambahKondisiAset(kode_aset, data_kondisi)
 {

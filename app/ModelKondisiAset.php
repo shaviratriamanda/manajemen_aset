@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class ModelKondisiAset extends Model
 {
@@ -14,10 +15,23 @@ class ModelKondisiAset extends Model
     "tanggal_kondisi",
     "id_aset",
     "deskripsi",
-	"gambar"
+	  "gambar"
   ];
   public function hitungAsetBerdasarkanKondisi($kondisi)
   {
-    return $this->where("kondisi", $kondisi)->count();
+    $hitung_kondisi = DB::select("SELECT 
+                          COUNT(data_kondisi.kondisi) AS kondisi 
+                        FROM (SELECT 
+                                kondisi_aset.id,
+                                kondisi_aset.kondisi 
+                                FROM 
+                                kondisi_aset 
+                                    JOIN 
+                                      (SELECT MAX(kondisi_aset.id) as id_kondisi 
+                                        FROM `kondisi_aset` 
+                                        GROUP BY kondisi_aset.id_aset) kondisi_terakhir 
+                                        ON kondisi_aset.id = kondisi_terakhir.id_kondisi) data_kondisi 
+                                        WHERE data_kondisi.kondisi = ? ", [$kondisi]);
+      return $hitung_kondisi[0]->kondisi;
   }
 }

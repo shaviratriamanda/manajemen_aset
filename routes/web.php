@@ -65,3 +65,6 @@ Route::get('/beranda', "Halaman@beranda")->middleware('cek_login_web');
 Route::get('/', "Halaman@show_login");
 Route::post('/', "Users@cekLogin");
 Route::get('/logout', "Halaman@logout")->middleware('cek_login_web');
+
+Route::get('/contoh-halaman', "Contoh@index");
+Route::get('/contoh-api', "Contoh@contoh_api");

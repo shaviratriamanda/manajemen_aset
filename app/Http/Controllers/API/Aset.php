@@ -11,10 +11,16 @@ class Aset extends Controller
 {
     public function index(Request $request)
     {
-		return response()->json(ModelAset::all());
+		return response()->json([
+            'success'=>true, 
+        'message'=>'string', 
+        'results'=>ModelAset::with('lokasi')->get()
+        ]);
     }
+
+
 	
-	public function show($id, Request $request)
+	public function show($id)
     {
         $data_aset = ModelAset::where("kode_aset", $id)->with('kondisi_aset')->first();
 		return response()->json($data_aset);	

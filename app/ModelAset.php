@@ -27,6 +27,6 @@ class ModelAset extends Model
   }
   public function lokasi()
   {
-      return $this->belongsTo('App\ModelLokasi', 'id_lokasi', 'id');
+      return $this->hasOne('App\ModelLokasi', 'id', 'id_lokasi');
   }
 }
