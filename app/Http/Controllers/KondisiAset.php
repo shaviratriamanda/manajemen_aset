@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Yajra\Datatables\Datatables;
-use Illuminate\Http\Request;
-use App\ModelKondisiAset;
 use App\ModelAset;
+use App\ModelKondisiAset;
+use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\Validator;
 
 class KondisiAset extends Controller
 {
@@ -24,6 +25,7 @@ class KondisiAset extends Controller
 
     public function store($id_aset, Request $request)
     {
+        
         $data_kondisi_aset = $request->all();
         $data_kondisi_aset['id_aset'] = $id_aset;
         $gambar = $request->file("gambar");

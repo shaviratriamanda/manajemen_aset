@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\ModelKondisiAset;
 use App\ModelAset;
+use App\ModelKondisiAset;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class KondisiAset extends Controller
 {
@@ -23,6 +24,16 @@ class KondisiAset extends Controller
 
     public function store($id_aset, Request $request)
     {
+        $valid = Validator::make($request->all(), [
+            'gambar' => ['required'],
+            'tanggal_kondisi' => ['required'],
+            'jam_kondisi' => ['required']
+        ]);
+        if ($valid->fails()) {
+            return response([
+                'err' => $valid->errors(),
+            ], 422);
+        }
         $data_kondisi_aset = $request->all();
         $data_kondisi_aset['id_aset'] = ModelAset::where("kode_aset", $id_aset)->pluck("id")->first();
         $gambar = $request->file("gambar");
